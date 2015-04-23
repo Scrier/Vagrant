@@ -39,9 +39,13 @@ yum -y install mongodb-org mongodb-org-server
 systemctl start mongod
 
 # Install mean-cli
-echo "If not run manually the rights goes wrong here, not sure why."
-echo "Run the following commands"
-echo "sudo npm install -g gulp"
-echo "sudo npm install -g bower"
-echo "sudo npm install -g mean-cli"
+npm install -g gulp
+npm install -g bower
+npm install -g mean-cli
+
+if [ -d "/root/.npm" ]; then
+	echo "Moving /root/.npm to /home/vagrant/.npm"
+	mv /root/.npm /home/vagrant
+	chown -R vagrant:vagrant /home/vagrant/.npm
+fi
 
