@@ -24,6 +24,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Add port-forward for Express app
   config.vm.network :forwarded_port, guest: 3000, host: 3000
+  # Add port-forward for environment test
+  config.vm.network :forwarded_port, guest: 3001, host: 3001
+  # Add port-forward for node debugger
+  config.vm.network :forwarded_port, guest: 5858, host: 5858
   # Add port-forward for Livereload
   config.vm.network :forwarded_port, guest: 35729, host: 35729
   # Add port-forward for Nginx
@@ -31,7 +35,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  # config.vm.network "private_network", ip: "192.168.0.123"
+  # config.vm.network "private_network", ip: "192.168.0.150"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
