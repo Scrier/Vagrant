@@ -65,5 +65,8 @@ else
   # Touch file to keep install to once.
   touch $INSTALL_DO_ONCE
 
+  # Fix hosts for external access.
+  sed -i -E "s/127.0.0.1(.*)/0.0.0.0\1 # Replaced 127.0.0.1 to work with Vagrant external access./" /etc/hosts
+
 fi
 
